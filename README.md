@@ -117,3 +117,11 @@ As stated in the summary, the custom-coded solution based on Scikit-learn result
 ## Proof of cluster clean up
 **If you did not delete your compute cluster in the code, please complete this section. Otherwise, delete this section.**
 **Image of cluster marked for deletion**
+
+
+## References
+The basis for this work can be found under the following link:
+- [Official Udacity Repository](https://github.com/udacity/nd00333_AZMLND_Optimizing_a_Pipeline_in_Azure-Starter_Files)
+I futhermore used the official Microsoft Azure documentation, namely:
+- [What is automated machine learning (AutoML)?](https://docs.microsoft.com/en-us/azure/machine-learning/concept-automated-ml)
+- [Hyperparameter tuning a model with Azure Machine Learning](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-tune-hyperparameters)

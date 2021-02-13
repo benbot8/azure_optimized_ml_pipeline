@@ -127,7 +127,7 @@ Hint: weighted accuracy weighs each class according to the number of samples tha
 - Primary metric: to combat the previously mentioned case of highly inbalanced data, another primary metric could be used like "recall". Recall is being used when the False Negatived are important. 
 
 ## Proof of cluster clean up
-![](images/delete_cluster.jpg)
+![](images/delete_cluster.png)
 
 
 ## References

@@ -111,16 +111,23 @@ In there, the most important parameters are:
 Azure AutoML then tries different models and algorithms during the automation and tuning process. As a user, there is no need to specify the algorithm. The three different task parameter values determine the list of algorithms, or models, to apply (namely classification, regression or forecasting). For classification, this includes the following: Logistic Regression, Light GBM, Gradient Boosting, Decision Tree, K Nearest Neighbors, Linear SVC, Support Vector Classification (SVC), Random Forest, Extremely Randomized Trees, Xgboost, Averaged Perceptron Classifier, Naive Bayes and Linear SVM Classifier. That is pretty impressive given that I do no need to specify or configure any of those! See [Configure automated ML experiments in Python](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-configure-auto-train) for reference. 
 
 ## Pipeline comparison
-As stated in the summary, the custom-coded solution based on Scikit-learn resulted in a better solution. However, the effort and invested time was way more in comparison to the AutoML job, since the latter does turn all the necessary knobs for me. I am convinced that if I had the AutoML job more time to run, it would outperform the custom-coded model. 
-TODO
+As stated in the summary, the custom-coded solution based on Scikit-learn resulted in a better solution. However, the effort and invested time was way more in comparison to the AutoML job, since the latter does turn all the necessary knobs for me. 
+Both models had the goal of maximizing the accuracy. The exact results are: 
+- (Two-class) Logistic regression: accuracy: 0.95
+- VotingEnsemble: accuracy: 0.9159939301972686 and a weighted_accuracy: 0.9560585260948012 
 
+Architecturally, the two models are quite different. The two-class logistic regression predicts the probability of occurrence of an event by fitting data to a logistic functionm, thus performing a binary classification. The voting ensemble, as the name implies, carries out a number of individual classifiers and combines the predictions from those to make a prediction. 
+
+Hint: weighted accuracy weighs each class according to the number of samples that belong to that class in the dataset. 
 
 ## Future work
-**What are some areas of improvement for future experiments? Why might these improvements help the model?**
+- HyperDrive: the hyperparamter optimization can be done in a more exhaustive (and possibly rewarding) way in a sense that a different Sampling method could be used. 
+- AutoML: with AutoML, we can increase the number of iteration allowing us to go through more classification models supported by AutoML. 
+- Input dataset: the dataset in hand is very unbalanced, resulting in a negative impact on the model's accuracy. It is easy for the model to be very accurate just by predicting the majority class, while the accuracy for the minority class can fail miserably. This means that taking into account a simple metric like accuracy in order to judge how good our model is can be misleading. Techniques on how to deal with an inbalanced dataset are: undersampling (select only some samples from the majority class), oversampling (replicate data from the minority class), generate synthetic dataset (e.g. using SMOTE or K-nearest-neighbour) 
+- Primary metric: to combat the previously mentioned case of highly inbalanced data, another primary metric could be used like "recall". Recall is being used when the False Negatived are important. 
 
 ## Proof of cluster clean up
-**If you did not delete your compute cluster in the code, please complete this section. Otherwise, delete this section.**
-**Image of cluster marked for deletion**
+![](images/delete_cluster.jpg)
 
 
 ## References
